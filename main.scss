@@ -1,0 +1,104 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+$spring : url(./img/spring.jpg);
+$summer : url(./img/summer.jpg);
+$autumn: url(./img/autumn.jpg);
+$winter : url(./img/winter.jpg);
+
+
+@mixin weather($color, $season) {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: linear-gradient(to bottom, rgba(202, 196, 196, 0.603) , rgba(0, 0, 0, 0.623)), $season ;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    .box-weather {
+        width: 350px;
+        height: 600px;
+        padding: 30px 20px;
+        background-image: $season;
+        background-repeat: no-repeat;
+        background-size: cover;
+        color: $color;
+        text-align: center;
+        font-family: Arial, Helvetica, sans-serif;
+        border-radius: 15px;
+        box-shadow: 5px 5px 10px rgba(29, 28, 28, 0.616);
+        input {
+            width: 100%;
+            padding: 10px 20px;
+            background-color: rgba(187, 184, 184, 0.5);
+            border: none;
+            transition: 0.4s;
+            border-radius:0 15px 0 15px ;
+            font-size: 18px;
+        }
+        input:focus {
+            border-radius: 15px 0 15px 0;
+            background-color: rgba(155, 150, 150, 0.637);
+        }
+
+        .local {
+            margin-top: 35px;
+            .city {
+                text-shadow: 3px 3px 3px rgba(14, 12, 12, 0.247);
+            }
+            
+        }
+
+        .temp {
+            position: relative;
+            width: 250px;
+            height: 150px;
+            padding: 20px;
+            font-size: 70px;
+            font-weight: 600;
+            background-color: rgba(245, 245, 229, 0.473);
+            border-radius: 15px;
+            box-shadow: 5px 5px 4px rgba(44, 33, 33, 0.247);
+            margin: 30px auto;
+            text-shadow: 3px 3px 3px rgba(14, 12, 12, 0.247);
+        }
+
+        .desc {
+            font-size: 40px;
+            font-weight: 600;
+            margin-bottom: 30px;
+        }
+
+        .more {
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            margin-top: 50px;
+            
+        }
+
+    }
+}
+
+.spring {
+    @include weather(black,$spring )
+}
+
+.summer {
+    
+    @include weather(black,$summer )
+}
+
+.autumn {
+    
+    @include weather(rgb(243, 224, 164),$autumn)
+}
+
+.winter {
+    @include weather(white,$winter )
+    
+}
