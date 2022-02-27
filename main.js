@@ -53,4 +53,4 @@ async function getWeather(input) {
 	changeWeatherUI(weather)
 }
 
-getWeather('ha noi')
+getWeather('hung yen')
